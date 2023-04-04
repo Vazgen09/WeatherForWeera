@@ -53,12 +53,12 @@ private extension WeatherViewController {
     }
 
     func getLocalWheather() {
-        var regionName = ""
-        if let regionCode = Locale.current.regionCode {
-            regionName = (Locale.current as NSLocale).localizedString(forLocaleIdentifier: regionCode)
+        var regionName: String = "Yerevan"
+        
+        let currentlocal = Locale.current
+        if let regionCode = currentlocal.regionCode,let curretnRegionName =  currentlocal.localizedString(forRegionCode: regionCode) {
+            regionName = curretnRegionName
         }
-
-        regionName = regionName.isEmpty ? "Yerevan" : regionName
         showLoader()
         CityManager.shared.getCitiesWeathers(searchCity: regionName) { [weak self] cityModels in
             guard let self, let firstCity = cityModels.first else { return }

@@ -25,9 +25,10 @@ final class SearchViewController: BaseViewController {
     }()
 
     override func viewWillDisappear(_ animated: Bool) {
+        searchTextField.text?.removeAll()
         citySelected?(selectedCity)
     }
-
+    
     // MARK: - IBAction
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         getSearchData(text: searchTextField.text)

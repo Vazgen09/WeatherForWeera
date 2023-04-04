@@ -15,6 +15,7 @@ final class CityTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupLabelBackgroundView()
+        separatorInset = UIEdgeInsets(top: 0, left: self.bounds.size.width, bottom: 0, right: 0)
     }
 
     func configure(city: String) {
